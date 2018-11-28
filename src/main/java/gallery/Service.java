@@ -1,39 +1,29 @@
 package gallery;
 
+import act.cli.*;
 import act.inject.DefaultValue;
-import org.joda.time.DateTime;
+import act.util.Async;
+import act.util.ProgressGauge;
 import org.osgl.mvc.annotation.GetAction;
 
 public class Service {
 
-    /**
-     * The hello (`/hello`) endpoint.
-     *
-     * This will accept a query parameter named `who` and
-     * return a greeting string in a form of "Hello $who"
-     *
-     * @param who
-     *      request query parameter to specify the hello target.
-     *      default value is `World`.
-     * @return A hello string
-     */
-    @GetAction("hello")
-    public String hello(@DefaultValue("World") String who) {
-        return "Hello " + who;
-    }
-
-    /**
-     * Returns an important date in history: 09/Mar/2016.
-     *
-     * [AlphaGo](https://en.wikipedia.org/wiki/AlphaGo), a computer program defeated
-     * [Lee Sedol](https://en.wikipedia.org/wiki/Lee_Sedol), one of the best human Go players
-     * at this date.
-     *
-     * @return an important date in the history
-     */
-    @GetAction("date")
-    public DateTime date() {
-        return DateTime.parse("2016-03-09");
+    @Async
+    @GetAction("/calcPi")
+    @ReportProgress
+    @Command(name = "calcPi", help = "calculate pi")
+    public double calcPi(@DefaultValue("99999999") @Optional int steps, ProgressGauge gauge) {
+        gauge.updateMaxHint(steps);
+        double pi = 0.0d;
+        for (int i = steps; i > 0; --i) {
+            pi += Math.pow(-1, i + 1) / (2 * i - 1);
+            if (i == 1) {
+                pi *= 4;
+                break;
+            }
+            gauge.step();
+        }
+        return pi;
     }
 
 }

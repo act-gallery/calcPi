@@ -24,6 +24,11 @@
 
   <dependencies>
     <!-- add your dependencies here -->
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act</artifactId>
+      <version>1.8.14-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
 </project>
