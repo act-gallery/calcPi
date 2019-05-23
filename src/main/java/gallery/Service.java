@@ -10,6 +10,7 @@ public class Service {
 
     @Async
     @GetAction("/calcPi")
+    @ReportProgress
     @Command(name = "calcPi", help = "calculate pi")
     public double calcPi(@DefaultValue("99999999") @Optional int steps, ProgressGauge gauge) {
         gauge.updateMaxHint(steps);
