@@ -6,10 +6,13 @@ import act.util.Async;
 import act.util.ProgressGauge;
 import org.osgl.mvc.annotation.GetAction;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Service {
 
     @Async
-    @GetAction("/calcPi")
+    @GetAction
     @ReportProgress
     @Command(name = "calcPi", help = "calculate pi")
     public double calcPi(@DefaultValue("99999999") @Optional int steps, ProgressGauge gauge) {
