@@ -2,32 +2,26 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>gallery</groupId>
-  <artifactId>calc-pi</artifactId>
-  <version>1.8.29</version>
+    <groupId>gallery</groupId>
+    <artifactId>calc-pi</artifactId>
+    <version>1.9.0</version>
 
-  <name>My Awesome Application</name>
+    <name>My Awesome Application</name>
 
-  <parent>
-    <groupId>org.actframework</groupId>
-    <artifactId>act-starter-parent</artifactId>
-    <version>1.8.29.0</version>
-  </parent>
+    <parent>
+        <groupId>org.actframework</groupId>
+        <artifactId>act-starter-parent</artifactId>
+        <version>1.9.0.1</version>
+    </parent>
 
-  <properties>
-    <!-- remove the following line if you are on Java 7-->
-    <java.version>1.8</java.version>
-    <app.entry>gallery.AppEntry</app.entry>
-  </properties>
+    <properties>
+        <app.entry>gallery.AppEntry</app.entry>
+    </properties>
 
-  <dependencies>
-    <dependency>
-     <groupId>org.actframework</groupId>
-     <artifactId>act</artifactId>
-    </dependency>
-    <!-- add your dependencies here -->
-  </dependencies>
+    <dependencies>
+        <!-- add your dependencies here -->
+    </dependencies>
 
 </project>
